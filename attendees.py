@@ -5,7 +5,7 @@ def main():
     html = lxml.html.parse('open_government_meeting.html')
     trs = html.xpath('//table[@width="100%"]/tbody/tr[position()>1]')
     for to in map(email_address, trs):
-        print(to)
+        print(to + ',')
 
 def email_address(tr):
     name = str(tr.xpath('td[position()=2]')[0].text_content())
